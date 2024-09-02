@@ -1,18 +1,15 @@
 class Account(val id: String, private var balance: Double) {
 
-  // Deposit money into the account
   def deposit(amount: Double): Unit = {
     if (amount > 0) balance += amount
     else println("Invalid amount")
   }
 
-  // Withdraw money from the account
   def withdraw(amount: Double): Unit = {
     if (amount > 0 && amount <= balance) balance -= amount
     else println("Insufficient balance")
   }
 
-  // Transfer money from this account to another account
   def transfer(amount: Double, to: Account): Unit = {
     if (amount > 0 && amount <= balance) {
       this.withdraw(amount)
@@ -21,10 +18,8 @@ class Account(val id: String, private var balance: Double) {
     else println("Insufficient balance")
   }
 
-  // Get current balance
   def getBalance: Double = balance
 
-  // Overriding toString to display account details
   override def toString: String = s"Account(id: $id, balance: $balance)"
 }
 
